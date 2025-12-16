@@ -85,7 +85,7 @@ BUSID  VID:PID    DEVICE                       STATE
 总之能够记录到对应的`BUSID`
 
 ## 3.3 绑定USB
-首先，需要保证开着起码一个wsl的bash，不然没办法attach到wsl
+首先，需要保证开**起码一个wsl的bash**，不然没办法attach到wsl, 如果绑定USB失败, 修复方法见 [3.6](#helper)
 请务必按照顺序，先绑定USB-UART，再绑定JTAG
 若单绑定JTAG，这个玩意会因为在其之后绑定USB-UART而直接断联，亦或是短暂的一两秒内被wsl杀了
 (具体可以参考Section4)
@@ -228,7 +228,7 @@ $ dmesg | grep -i 'ftdi\|usbserial\|tty'
 # 完事
 ```
 
-### 3.6.2.`[screen is terminated]`及`screen`看不到输出等相关问题
+### 3.6.2 `[screen is terminated]`及`screen`看不到输出等相关问题
 首先确认占用情况，在bash中运行
 `lsof /dev/ttyUSB0`
 有三种情况
@@ -250,6 +250,16 @@ screen    73520  TypeC-Fuxuan    5u   CHR  188,1  0t0      730  /dev/ttyUSB0
 然后再把开关开开
 那么你应该能看到输出，问题应该被解决了
 
+### 3.6.3 `usb`端口映射失败
+一看就是不细读文档，我猜你是这个问题
+```powershell
+usbipd attach -b 1-4
+usbipd: error: There is no WSL 2 distribution running; keep a command prompt to a WSL 2 distribution open to leave it running.
+```
+不打开一个wsl的bash, 就没有正在运行的WSL 2 Distribution!!!
+吃我一拳! ===========3
+
+### 3.6.4 以上的问题都不是
 (O_o)?? 你说还在往下看？那就要靠你自己了
 加油！
 ``
