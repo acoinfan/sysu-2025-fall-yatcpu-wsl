@@ -60,7 +60,7 @@ INFO: Return code = 1
 # 3. 映射usb端口 
 ## 3.1 准备环境 (wsl中)
 先装个`usbutils`
-`sudo apt instsall usbutils -y`
+`sudo apt install usbutils -y`
 
 ## 3.2 确认BUSID (windows中)
 先把USB-UART的type-c供电插上(USB口插到电脑上别插插座 (踩坑x2))，还有JTAG也接上.
