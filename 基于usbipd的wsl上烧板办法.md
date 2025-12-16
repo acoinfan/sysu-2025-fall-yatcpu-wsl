@@ -183,7 +183,7 @@ INFO: [Common 17-206] Exiting Vivado at Wed Dec  3 00:42:30 2025...
 先装个screen
 `sudo apt install screen -y`
 然后打开串口
-`screen /dev/ttyUSB0 115200`
+`sudo screen /dev/ttyUSB0 115200`
 会有两种结果
 第一种进入了空白界面，没毛病
 第二种显示`[screen is terminating]`或者是`Cannot exec '/dev/ttyUSB0': No such file or directory`, 修复方法见 [3.6](#helper)
@@ -196,7 +196,7 @@ Never gonna run around and~ dessert you~
 ```
 Congratulations! 这就搞好了
 如果要退出，关掉bash就好，但是要注意，这个进程是没被杀掉的
-意味着如果再次`screen /dev/ttyUSB0 115200`打开，会报`[screen is terminating]`
+意味着如果再次`sudo screen /dev/ttyUSB0 115200`打开，会报`[screen is terminating]`
 同样见 [3.6](#helper)
 
 但是如果你进到了空白界面，把两个bottom按照规则推了，又试了好几次，还是没有反应
